@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" id="body">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>通行证</title>
+    <link rel="icon" href="Y'All Doomed.png">
+</head>
+
+<style>
+    html, body, #app {
+        height: 100%;
+        margin: 0;
+        padding: 0;}    
+</style>
+
+<body>
+    <p id="time1" style="position: absolute; color:rgb(70,150,230); font-family: SimHei; margin-top: 99.4%; margin-left: 32.1%; font-size: 1.13rem;">
+        <script>
+            setInterval(function(){    
+                var t = new Date();
+                var year = t.getFullYear();
+                var month = t.getMonth() + 1;
+                var day = t.getDate();
+                document.getElementById("time1").innerHTML=year + ((month < 10) ? "年0" : "年") + month + ((day < 10) ? "月0" : "月") + day + "日"},1000);
+        </script>
+    </p>
+    <p id="time2" style="position: absolute; text-align:center; color:rgb(70,150,230); font-family: SimHei; margin-top: 107.5%; margin-left: 27%; font-size: 1.13rem;">
+        <script>
+            setInterval(function(){    
+                var t = new Date();
+                var hour = t.getHours();
+                var minute = t.getMinutes();
+                var second = t.getSeconds();
+                document.getElementById("time2").innerHTML=((hour < 10) ? "0" : "") + hour + ((minute < 10) ? "时0" : "时") + minute + ((second < 10) ? "分0" : "分") + second + "秒&nbsp&nbsp&nbsp毫秒";},1000);
+        </script>
+    </p>
+    <p id="time3" style="position: absolute; text-align:center; color:rgb(220,20,20); font-family: SimHei; margin-top: 107.5%; margin-left: 55.95%; font-size: 1.13rem;">
+        <script>
+            setInterval(function(){    
+                var t = new Date();
+                var millisecond = t.getMilliseconds();
+                document.getElementById("time3").innerHTML= millisecond;},1)
+        </script>
+    </p>
+    <p style="position: absolute; margin-top: 115.25%; margin-left:37.2%; font-size:0.99rem; font-family:Microsoft YaHei; color:black">
+        <script>
+            var username = localStorage.username;
+            if (username.length == 2){
+                username = username.substring(0,1)+'*';}
+            else if (username.length == 3){
+                username = username.substring(0,1)+'*'+username.substring(2,3);}
+            else if (username.length > 3){
+                username = username.substring(0,1)+"*"+'*'+username.substring(3,username.lemngth)}
+            document.write(username)
+        </script>
+    </p>
+    <p style="position: absolute; margin-top: 124.06%; margin-left:37.2%; font-size:0.99rem; font-family:Microsoft YaHei; color:black">
+        <script>
+            var community = localStorage.community;
+            document.write(community);
+        </script>
+    </p>
+    <p style="position: absolute; margin-top: 132.87%; margin-left:37.2%; font-size:0.99rem; font-family:Microsoft YaHei; color:black">
+        <script>
+            var housingestate = localStorage.housingestate;
+            document.write(housingestate);
+        </script>
+    </p>
+    <p style="position: absolute; color:white; font-family:STXihei; margin-top: 168.2%; margin-left: 24.4%; font-size: 0.93rem;">
+        <script>
+            var t = new Date();
+            var year = t.getFullYear();
+            var month = t.getMonth() + 1;
+            var day = t.getDate();
+            if (day == 1){
+                if (month == 2 || month == 4 || month ==6 || month ==8 || month ==9 || month ==11){month = month - 1; day = 31}
+                else if (month == 5 || month == 7 || month == 10 || month == 12) {month = month - 1; day = 30}
+                else if (month == 1){year = year - 1; month = 12; day = 31}
+                else if(month == 3){month = 2; day = 28};}
+            else {day = day - 1};
+            var nowTime = year + ((month < 10) ? "-0" : "-") + month + ((day < 10) ? "-0" : "-") + day;
+            document.write(nowTime);
+        </script>
+    </p>
+    <p style="position: absolute; color:white; font-family:STXihei; margin-top: 168.2%; margin-left: 54.6%; font-size: 0.93rem;">2021-06-21</p>
+    <img src="passcheck1.png" width="100%" id="citizencode1">
+    <img src="passcheck2.png" width="100%" id="citizencode2" style="margin-top: -1.7%;">
+    <div style="height: 14.4vw; width:100%;"></div>
+    <img src="codebottom2.png" style="width:100%; position:fixed; margin:auto; right:0; bottom:0;">
+    <div id="citizencode" style="position:fixed; height: 14.4vw; width:25%; margin:auto; left:0; bottom:0; color:transparent"></div>
+    <div id="venuecode" style="position:fixed; height: 14.4vw; width:25%; margin:auto; left:25%; bottom:0; color:transparent"></div>
+    <div id="passcheck" style="position:fixed; height: 14.4vw; width:25%; margin:auto; left:50%; bottom:0; color:transparent"></div>
+    <div id="account" style="position:fixed; height: 14.4vw; width:25%; margin:auto; left:75%; bottom:0; color:transparent"></div>
+</body>
+
+<script>    
+    document.getElementById('citizencode').onclick = function(){
+        location.href="citizencode.html";}
+    document.getElementById('venuecode').onclick = function(){
+        location.href="venuecode.html";}
+    document.getElementById('passcheck').onclick = function(){
+        location.href="passcheck.html";}
+    document.getElementById('account').onclick = function(){
+        location.href="index.html";}
+</script>
+</html>
